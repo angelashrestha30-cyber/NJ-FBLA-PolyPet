@@ -1,33 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PolyPet</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PolyPet</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">🐾 PolyPet</div>
-    <div class="nav-links">
-      <button onclick="loadSection('home')">Home</button>
-      <button onclick="loadSection('pets')">Pets</button>
-      <button onclick="loadSection('learning')">Learning</button>
-      <button onclick="loadSection('world-clock')">World Clock</button>
-    </div>
-  </nav>
 
-  <!-- MAIN CONTENT -->
-  <main id="main-content">
-    <!-- Sections will load here via JS -->
-  </main>
+<div class="background">
 
-  <!-- CONFETTI -->
-  <canvas id="confettiCanvas"></canvas>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
 
-  <footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
-  <script src="js/script.js"></script>
+</div>
+
+
+<header class="navbar">
+
+<div class="logo">🐾 PolyPet</div>
+
+<nav>
+
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('learn')">Learn</button>
+<button onclick="showPage('pets')">Pets</button>
+<button onclick="showPage('clock')">World Clock</button>
+
+</nav>
+
+</header>
+
+
+<main>
+
+<section id="home" class="page active">
+
+<div class="dashboard">
+
+<div class="card pet-card">
+
+<div class="pet-avatar">🦊</div>
+
+<h2>Pika</h2>
+
+<p>Level <span id="level">1</span></p>
+
+<div class="xp-bar">
+
+<div id="xp-fill"></div>
+
+</div>
+
+<button onclick="gainXP()">Complete Lesson</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔥 Daily Streak</h3>
+
+<p id="streak">3 Days</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📚 Lessons Completed</h3>
+
+<p>12</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="learn" class="page">
+
+<h1>Learning Hub</h1>
+
+<div class="lesson-grid">
+
+<div class="lesson-card">
+<h3>Flashcards</h3>
+<p>Review vocabulary</p>
+</div>
+
+<div class="lesson-card">
+<h3>Practice</h3>
+<p>Interactive exercises</p>
+</div>
+
+<div class="lesson-card">
+<h3>Unit Test</h3>
+<p>Test your knowledge</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="pets" class="page">
+
+<h1>Pet Collection</h1>
+
+<div class="pet-grid">
+
+<div class="pet-box">🦊 Spanish Fox</div>
+<div class="pet-box">🐼 Mandarin Panda</div>
+<div class="pet-box">🐱 Japanese Cat</div>
+
+</div>
+
+</section>
+
+
+<section id="clock" class="page">
+
+<h1>World Clock</h1>
+
+<div class="clock-grid">
+
+<div class="clock-card">
+<h3>🇯🇵 Japan</h3>
+<p id="tokyo"></p>
+</div>
+
+<div class="clock-card">
+<h3>🇪🇸 Spain</h3>
+<p id="madrid"></p>
+</div>
+
+<div class="clock-card">
+<h3>🇨🇳 China</h3>
+<p id="beijing"></p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
 </html>
