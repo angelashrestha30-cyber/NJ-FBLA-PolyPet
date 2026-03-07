@@ -1,73 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PolyPet - Home</title>
-<link rel="stylesheet" href="css/styles.css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PolyPet</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">🐾 PolyPet</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="schedule.html">Schedule</a>
-    <a href="resources.html">Resources</a>
-    <a href="pets.html">Pets</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="home" class="hero section">
-  <div class="bg-blobs"><span></span><span></span><span></span></div>
-  <div class="hero-container">
-    <!-- LEFT: PET CARD -->
-    <div class="pet-panel">
-      <div class="pet-avatar">🦊</div>
-      <h3 id="pet-name-display">Pika</h3>
-      <div class="pet-name-input-container">
-        <input type="text" id="pet-name-input" placeholder="Name your pet!">
-        <button id="pet-name-btn">Rename</button>
-      </div>
-      <p>Level <span id="level">1</span></p>
-      <div class="xp-bar">
-        <div id="xp-fill"></div>
-      </div>
-      <p>🔥 <span id="streak">0</span> Day Streak</p>
-      <button onclick="completeLesson()">Play</button>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">🐾 PolyPet</div>
+    <div class="nav-links">
+      <button onclick="loadSection('home')">Home</button>
+      <button onclick="loadSection('pets')">Pets</button>
+      <button onclick="loadSection('learning')">Learning</button>
+      <button onclick="loadSection('world-clock')">World Clock</button>
     </div>
+  </nav>
 
-    <!-- CENTER: GREETING BUBBLE -->
-    <div class="speech-bubble">
-      <h2 id="dynamicGreeting">Welcome Back, Emma!</h2>
-      <p>Clever like a fox, keep up the great work! 🌟</p>
-    </div>
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <!-- Sections will load here via JS -->
+  </main>
 
-    <!-- RIGHT: FLOATING LESSON CARDS -->
-    <div class="lesson-cards">
-      <div class="lesson-card float">
-        <h4>Spanish Basics</h4>
-        <p>⭐ ⭐</p>
-        <span class="lvl">Lv. 2</span>
-      </div>
-      <div class="lesson-card float delay1">
-        <h4>Kanji Practice</h4>
-        <p>⭐ ⭐ ⭐</p>
-        <span class="lvl">Lv. 3</span>
-      </div>
-      <div class="lesson-card float delay2">
-        <h4>Grammar Quiz</h4>
-        <p>⭐</p>
-        <span class="lvl">Lv. 1</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- CONFETTI -->
+  <canvas id="confettiCanvas"></canvas>
 
-<canvas id="confettiCanvas"></canvas>
-<footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
-<script src="js/script.js"></script>
+  <footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
+  <script src="js/script.js"></script>
 </body>
 </html>
