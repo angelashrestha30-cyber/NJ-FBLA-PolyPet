@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PolyPet - Pets</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">🐾 PolyPet</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="resources.html">Resources</a>
+    <a href="pets.html">Pets</a>
+  </div>
+</nav>
 
+<section id="pet-collection-section" class="section">
+  <h2>Pet Collection</h2>
+  <div class="current-pet">
+    <!-- Current pet displayed here -->
+  </div>
+  <div class="pet-collection" id="pet-collection"></div>
+  <h4>Collect Demo Pets</h4>
+  <button class="collect-btn" onclick="collectPet('Spanish')">Spanish 🦊</button>
+  <button class="collect-btn" onclick="collectPet('Mandarin')">Mandarin 🐼</button>
+  <button class="collect-btn" onclick="collectPet('Japanese')">Japanese 🐱</button>
+</section>
+
+<canvas id="confettiCanvas"></canvas>
+<footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
