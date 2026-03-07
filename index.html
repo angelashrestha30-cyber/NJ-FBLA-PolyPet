@@ -1,109 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PolyPet</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PolyPet - Home</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <h1>🐾 PolyPet</h1>
-    <nav>
-      <button onclick="showSection('home')">Home</button>
-      <button onclick="showSection('pets')">Pets</button>
-      <button onclick="showSection('worldClock')">World Clock</button>
-      <button onclick="showSection('learning')">Learning</button>
-      <button onclick="showSection('tests')">Unit Test</button>
-    </nav>
-  </header>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🐾 PolyPet</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="resources.html">Resources</a>
+    <a href="pets.html">Pets</a>
+  </div>
+</nav>
 
-  <!-- BLOBS -->
-  <div class="blob" style="width:300px;height:300px;top:10%;left:5%;"></div>
-  <div class="blob" style="width:250px;height:250px;bottom:10%;right:10%; animation-delay:3s;"></div>
-  <div class="blob" style="width:200px;height:200px;top:50%;left:60%; animation-delay:6s;"></div>
-
-  <!-- SECTIONS -->
-  <section id="home" class="section glass" style="display:block;">
-    <div id="greeting-container">Good Afternoon, Emma!</div>
-    <p style="text-align:center; color:#fff;">Welcome back to PolyPet! Complete lessons to level up your pets. 🌟</p>
-    <div style="text-align:center;">
-      <button onclick="completeLesson()">Complete Lesson +XP</button>
-    </div>
-    <div id="xp-bar" class="glass">
-      <div id="xp-fill"></div>
-    </div>
-    <p style="text-align:center; color:#fff;">Level: <span id="level">1</span> | Streak: <span id="streak">0</span></p>
-  </section>
-
-  <section id="pets" class="section glass">
-    <h2 style="text-align:center; color:#fff;">Pet Collection</h2>
-    <div id="pet-collection"></div>
-    <div style="text-align:center; margin-top:15px;">
-      <button onclick="collectPet('Spanish')">Spanish 🦊</button>
-      <button onclick="collectPet('Mandarin')">Mandarin 🐼</button>
-      <button onclick="collectPet('Japanese')">Japanese 🐱</button>
-    </div>
-  </section>
-
-  <section id="worldClock" class="section glass">
-    <h2 style="text-align:center; color:#fff;">World Clock</h2>
-    <div id="clock-container"></div>
-  </section>
-
-  <section id="learning" class="section glass">
-    <h2 style="text-align:center; color:#fff;">Flashcards & Practice</h2>
-    <!-- FLASHCARD -->
-    <div id="flashcard" class="glass">Click "Load Flashcards"</div>
-    <div style="text-align:center; margin-bottom:20px;">
-      <button onclick="loadSpanishLevel3()">Load Flashcards</button>
-      <button onclick="nextCard()">Next Card</button>
-      <button onclick="flipCard()">Flip Card</button>
+<!-- HERO -->
+<section id="home" class="hero section">
+  <div class="bg-blobs"><span></span><span></span><span></span></div>
+  <div class="hero-container">
+    <!-- LEFT: PET CARD -->
+    <div class="pet-panel">
+      <div class="pet-avatar">🦊</div>
+      <h3 id="pet-name-display">Pika</h3>
+      <div class="pet-name-input-container">
+        <input type="text" id="pet-name-input" placeholder="Name your pet!">
+        <button id="pet-name-btn">Rename</button>
+      </div>
+      <p>Level <span id="level">1</span></p>
+      <div class="xp-bar">
+        <div id="xp-fill"></div>
+      </div>
+      <p>🔥 <span id="streak">0</span> Day Streak</p>
+      <button onclick="completeLesson()">Play</button>
     </div>
 
-    <!-- PRACTICE -->
-    <div id="practice-container" class="glass">
-      <p id="practiceQuestion">Click "Start Practice" to begin</p>
-      <input id="practiceInput" type="text" placeholder="Type your answer here">
-      <button onclick="checkPractice()">Check Answer</button>
-      <p id="practiceResult"></p>
-      <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">Next</button>
-      <div style="margin-top:10px;">
-        <button onclick="startPractice()">Start Practice</button>
+    <!-- CENTER: GREETING BUBBLE -->
+    <div class="speech-bubble">
+      <h2 id="dynamicGreeting">Welcome Back, Emma!</h2>
+      <p>Clever like a fox, keep up the great work! 🌟</p>
+    </div>
+
+    <!-- RIGHT: FLOATING LESSON CARDS -->
+    <div class="lesson-cards">
+      <div class="lesson-card float">
+        <h4>Spanish Basics</h4>
+        <p>⭐ ⭐</p>
+        <span class="lvl">Lv. 2</span>
+      </div>
+      <div class="lesson-card float delay1">
+        <h4>Kanji Practice</h4>
+        <p>⭐ ⭐ ⭐</p>
+        <span class="lvl">Lv. 3</span>
+      </div>
+      <div class="lesson-card float delay2">
+        <h4>Grammar Quiz</h4>
+        <p>⭐</p>
+        <span class="lvl">Lv. 1</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="tests" class="section glass">
-    <h2 style="text-align:center; color:#fff;">Unit Test</h2>
-    <div id="unitTest"></div>
-  </section>
-
-  <!-- CONFETTI -->
-  <canvas id="confettiCanvas"></canvas>
-
-  <!-- SCRIPTS -->
-  <script src="script.js"></script>
-  <script>
-    // SECTION NAVIGATION
-    function showSection(id){
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-
-    // DYNAMIC GREETING
-    function updateGreeting(){
-      const hour = new Date().getHours();
-      let greeting = "Hello";
-      if(hour >=5 && hour <12) greeting = "Good Morning";
-      else if(hour >=12 && hour <18) greeting = "Good Afternoon";
-      else greeting = "Good Evening";
-      document.getElementById('greeting-container').textContent = greeting + ", Emma!";
-    }
-    updateGreeting();
-  </script>
+<canvas id="confettiCanvas"></canvas>
+<footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
+<script src="js/script.js"></script>
 </body>
 </html>
