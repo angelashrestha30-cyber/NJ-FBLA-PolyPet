@@ -4,91 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PolyPet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <h1>🐾 PolyPet</h1>
+    <nav>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('pets')">Pets</button>
+      <button onclick="showSection('worldClock')">World Clock</button>
+      <button onclick="showSection('learning')">Learning</button>
+      <button onclick="showSection('tests')">Unit Test</button>
+    </nav>
+  </header>
 
   <!-- BLOBS -->
-  <div class="blob" style="top:10%; left:5%; width:300px; height:300px;"></div>
-  <div class="blob" style="bottom:10%; right:10%; width:250px; height:250px;"></div>
-  <div class="blob" style="top:50%; left:60%; width:200px; height:200px;"></div>
+  <div class="blob" style="width:300px;height:300px;top:10%;left:5%;"></div>
+  <div class="blob" style="width:250px;height:250px;bottom:10%;right:10%; animation-delay:3s;"></div>
+  <div class="blob" style="width:200px;height:200px;top:50%;left:60%; animation-delay:6s;"></div>
 
-  <!-- NAVBAR -->
-  <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('pets')">Pets</button>
-    <button onclick="showSection('schedule')">Schedule</button>
-    <button onclick="showSection('resources')">Resources</button>
-  </nav>
+  <!-- SECTIONS -->
+  <section id="home" class="section glass" style="display:block;">
+    <div id="greeting-container">Good Afternoon, Emma!</div>
+    <p style="text-align:center; color:#fff;">Welcome back to PolyPet! Complete lessons to level up your pets. 🌟</p>
+    <div style="text-align:center;">
+      <button onclick="completeLesson()">Complete Lesson +XP</button>
+    </div>
+    <div id="xp-bar" class="glass">
+      <div id="xp-fill"></div>
+    </div>
+    <p style="text-align:center; color:#fff;">Level: <span id="level">1</span> | Streak: <span id="streak">0</span></p>
+  </section>
 
-  <!-- HOME / GREETING -->
-  <section id="home" class="section glass">
-    <div id="greeting-container">Good Morning, Emma! 🌞</div>
-    <div class="pet-dashboard glass">
-      <div class="pet-avatar">🦊</div>
-      <div class="pet-info">
-        <div>Level: <span id="level">1</span></div>
-        <div>XP: <div id="xp-bar"><div id="xp-fill"></div></div></div>
-        <div>🔥 Streak: <span id="streak">0</span></div>
-      </div>
-      <button onclick="completeLesson()">Play Lesson</button>
+  <section id="pets" class="section glass">
+    <h2 style="text-align:center; color:#fff;">Pet Collection</h2>
+    <div id="pet-collection"></div>
+    <div style="text-align:center; margin-top:15px;">
+      <button onclick="collectPet('Spanish')">Spanish 🦊</button>
+      <button onclick="collectPet('Mandarin')">Mandarin 🐼</button>
+      <button onclick="collectPet('Japanese')">Japanese 🐱</button>
     </div>
   </section>
 
-  <!-- PETS -->
-  <section id="pets" class="section glass">
-    <h2>Pet Collection</h2>
-    <div id="pet-collection"></div>
-    <h3>Collect Demo Pets</h3>
-    <button onclick="collectPet('Spanish')">Spanish 🦊</button>
-    <button onclick="collectPet('Mandarin')">Mandarin 🐼</button>
-    <button onclick="collectPet('Japanese')">Japanese 🐱</button>
-  </section>
-
-  <!-- SCHEDULE -->
-  <section id="schedule" class="section glass">
-    <h2>World Clock 🌍</h2>
+  <section id="worldClock" class="section glass">
+    <h2 style="text-align:center; color:#fff;">World Clock</h2>
     <div id="clock-container"></div>
   </section>
 
-  <!-- RESOURCES -->
-  <section id="resources" class="section glass">
-    <h2>Learning Tools</h2>
-
-    <!-- FLASHCARDS -->
-    <div id="flashcards-section" class="glass">
-      <h3>Flashcards</h3>
-      <div id="flashcard">Click to start</div>
-      <button onclick="flipCard()">Flip</button>
-      <button onclick="nextCard()">Next</button>
+  <section id="learning" class="section glass">
+    <h2 style="text-align:center; color:#fff;">Flashcards & Practice</h2>
+    <!-- FLASHCARD -->
+    <div id="flashcard" class="glass">Click "Load Flashcards"</div>
+    <div style="text-align:center; margin-bottom:20px;">
+      <button onclick="loadSpanishLevel3()">Load Flashcards</button>
+      <button onclick="nextCard()">Next Card</button>
+      <button onclick="flipCard()">Flip Card</button>
     </div>
 
     <!-- PRACTICE -->
-    <div id="practice-section" class="glass">
-      <h3>Practice</h3>
-      <div class="practice-box">
-        <p id="practiceQuestion">Click Start to begin</p>
-        <input id="practiceInput" type="text" placeholder="Answer here">
-        <button onclick="checkPractice()">Check</button>
-        <p id="practiceResult"></p>
-        <button id="nextPracticeBtn" onclick="nextPractice()" style="display:none;">Next</button>
+    <div id="practice-container" class="glass">
+      <p id="practiceQuestion">Click "Start Practice" to begin</p>
+      <input id="practiceInput" type="text" placeholder="Type your answer here">
+      <button onclick="checkPractice()">Check Answer</button>
+      <p id="practiceResult"></p>
+      <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">Next</button>
+      <div style="margin-top:10px;">
         <button onclick="startPractice()">Start Practice</button>
       </div>
     </div>
+  </section>
 
-    <!-- UNIT TEST -->
-    <div id="unitTest-section" class="glass">
-      <h3>Unit Test</h3>
-      <div id="unitTest"></div>
-    </div>
-
+  <section id="tests" class="section glass">
+    <h2 style="text-align:center; color:#fff;">Unit Test</h2>
+    <div id="unitTest"></div>
   </section>
 
   <!-- CONFETTI -->
   <canvas id="confettiCanvas"></canvas>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPTS -->
   <script src="script.js"></script>
+  <script>
+    // SECTION NAVIGATION
+    function showSection(id){
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    // DYNAMIC GREETING
+    function updateGreeting(){
+      const hour = new Date().getHours();
+      let greeting = "Hello";
+      if(hour >=5 && hour <12) greeting = "Good Morning";
+      else if(hour >=12 && hour <18) greeting = "Good Afternoon";
+      else greeting = "Good Evening";
+      document.getElementById('greeting-container').textContent = greeting + ", Emma!";
+    }
+    updateGreeting();
+  </script>
 </body>
 </html>
