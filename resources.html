@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PolyPet - Resources</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">🐾 PolyPet</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="resources.html">Resources</a>
+    <a href="pets.html">Pets</a>
+  </div>
+</nav>
 
+<section id="resources" class="section">
+  <h2>Resources</h2>
+  <div class="resource-cards">
+    <div class="resource-card" onclick="showResource('video')">🎥 Video Lesson</div>
+    <div class="resource-card" onclick="showResource('flashcards')">🃏 Flashcards</div>
+    <div class="resource-card" onclick="showResource('practice')">✏️ Practice Mode</div>
+    <div class="resource-card" onclick="showResource('test')">📝 Unit Test</div>
+  </div>
+
+  <div id="video" class="resource-content">
+    <h3>Video Lesson</h3>
+    <p>Here you can add your video lesson or embed a YouTube link!</p>
+  </div>
+
+  <div id="flashcards" class="resource-content">
+    <h3>Flashcards</h3>
+    <div id="flashcard" class="flashcard" onclick="flipCard()">Click "Load Flashcards" to start</div>
+    <div class="menu-buttons">
+      <button onclick="loadSpanishLevel3()">Load Flashcards</button>
+      <button onclick="nextCard()">Next</button>
+    </div>
+  </div>
+
+  <div id="practice" class="resource-content">
+    <h3>Practice Mode</h3>
+    <div id="practice-box">
+      <p id="practiceQuestion">Click "Start Practice" to begin.</p>
+      <input id="practiceInput" type="text" placeholder="Type your answer here">
+      <button onclick="checkPractice()">Check Answer</button>
+      <p id="practiceResult"></p>
+      <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">Next</button>
+    </div>
+    <div class="menu-buttons">
+      <button onclick="startPractice()">Start Practice</button>
+    </div>
+  </div>
+
+  <div id="test" class="resource-content">
+    <h3>Unit Test</h3>
+    <div id="unitTest"></div>
+  </div>
+</section>
+
+<footer>© 2026 PolyPet | NJ FBLA State Competition</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
