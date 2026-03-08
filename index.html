@@ -1,160 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PolyPet</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PolyPet</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ================= PET / COLLECTION CSS ================= */
+    #pet-collection-section {
+      padding: 20px;
+      background: #fff0f0;
+      margin-bottom: 40px;
+    }
+    .pet-collection, .current-pet {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pet-card {
+      border: 2px solid #ff7f7f;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      width: 120px;
+      background: #fff8f8;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      cursor: default;
+    }
+    .pet-emoji {
+      font-size: 50px;
+    }
+    .pet-name {
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    .language-badge {
+      margin-top: 3px;
+      font-size: 12px;
+      background: #ffe6e6;
+      padding: 2px 6px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .collect-btn {
+      padding: 6px 10px;
+      background: #ff7f7f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="background">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">🐾 PolyPet</div>
+    <div class="nav-links">
+      <a onclick="scrollToSection('home')">Home</a>
+      <a onclick="scrollToSection('schedule')">Schedule</a>
+      <a onclick="scrollToSection('resources')">Resources</a>
+      <a onclick="scrollToSection('pet-collection-section')">Pets</a>
+    </div>
+  </nav>
 
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
+  <!-- HERO -->
+  <section id="home" class="hero section">
+    <div class="bg-blobs"><span></span><span></span><span></span></div>
+    <div class="hero-container">
 
-</div>
+      <!-- LEFT: PET CARD -->
+      <div class="pet-panel">
+        <div class="pet-avatar">🦊</div>
+        <h3 id="pet-name-display">Pika</h3>
+        <div class="pet-name-input-container">
+          <input type="text" id="pet-name-input" placeholder="Name your pet!">
+          <button id="pet-name-btn">Rename</button>
+        </div>
+        <p>Level <span id="level">1</span></p>
+        <div class="xp-bar">
+          <div id="xp-fill"></div>
+        </div>
+        <p>🔥 <span id="streak">0</span> Day Streak</p>
+        <button onclick="completeLesson()">Play</button>
+      </div>
 
+      <!-- CENTER: SPEECH BUBBLE -->
+      <div class="speech-bubble">
+        <h2 id="dynamicGreeting">Welcome Back, Emma!</h2>
+        <p>Clever like a fox, keep up the great work! 🌟</p>
+      </div>
 
-<header class="navbar">
+      <!-- RIGHT: FLOATING LESSON CARDS -->
+      <div class="lesson-cards">
+        <div class="lesson-card float">
+          <h4>Spanish Basics</h4>
+          <p>⭐ ⭐</p>
+          <span class="lvl">Lv. 2</span>
+        </div>
+        <div class="lesson-card float delay1">
+          <h4>Kanji Practice</h4>
+          <p>⭐ ⭐ ⭐</p>
+          <span class="lvl">Lv. 3</span>
+        </div>
+        <div class="lesson-card float delay2">
+          <h4>Grammar Quiz</h4>
+          <p>⭐</p>
+          <span class="lvl">Lv. 1</span>
+        </div>
+      </div>
 
-<div class="logo">🐾 PolyPet</div>
+    </div>
+  </section>
 
-<nav>
+  <!-- PET COLLECTION -->
+  <section id="pet-collection-section" class="section">
+    <h2>Pet Collection</h2>
+    <div class="current-pet"></div>
+    <div class="pet-collection" id="pet-collection"></div>
+    <h4>Collect Demo Pets</h4>
+    <button class="collect-btn" onclick="collectPet('Spanish')">Spanish 🦊</button>
+    <button class="collect-btn" onclick="collectPet('Mandarin')">Mandarin 🐼</button>
+    <button class="collect-btn" onclick="collectPet('Japanese')">Japanese 🐱</button>
+  </section>
 
-<button onclick="showPage('home')">Home</button>
-<button onclick="showPage('learn')">Learn</button>
-<button onclick="showPage('pets')">Pets</button>
-<button onclick="showPage('clock')">World Clock</button>
+  <!-- SCHEDULE -->
+  <section id="schedule" class="section">
+    <h2>Today's Schedule</h2>
+    <div class="filter-buttons">
+      <button onclick="filterSchedule('all')">All</button>
+      <button onclick="filterSchedule('spanish')">Spanish</button>
+      <button onclick="filterSchedule('mandarin')">Mandarin</button>
+    </div>
+    <div class="schedule-grid">
+      <div class="event spanish">
+        <h3>Spanish Lesson</h3>
+        <p>2:00 PM – 3:00 PM EST</p>
+      </div>
+      <div class="event mandarin">
+        <h3>Mandarin Lesson</h3>
+        <p>6:00 PM – 7:00 PM EST</p>
+      </div>
+    </div>
 
-</nav>
+    <!-- CALENDAR -->
+    <div class="calendar-box">
+      <input type="date" id="lesson-date">
+      <button onclick="scheduleLesson()">Schedule Lesson</button>
+      <ul id="lesson-list"></ul>
+    </div>
 
-</header>
+    <!-- WORLD CLOCK -->
+    <div class="world-clock">
+      <h3 class="world-clock-title">🌍 World Clock</h3>
+      <div id="clock-container" class="clock-container"></div>
+      <div class="add-clock-box">
+        <input type="text" id="new-country" placeholder="Country Name">
+        <input type="text" id="new-tz" placeholder="Timezone (e.g. Europe/Berlin)">
+        <button id="add-clock-btn" type="button">Add Clock</button>
+      </div>
+    </div>
+  </section>
 
+  <!-- RESOURCES -->
+  <section id="resources" class="section">
+    <h2>Resources</h2>
 
-<main>
+    <!-- RESOURCE CARDS -->
+    <div class="resource-cards">
+      <div class="resource-card" onclick="showResource('video')">🎥 Video Lesson</div>
+      <div class="resource-card" onclick="showResource('flashcards')">🃏 Flashcards</div>
+      <div class="resource-card" onclick="showResource('practice')">✏️ Practice Mode</div>
+      <div class="resource-card" onclick="showResource('test')">📝 Unit Test</div>
+    </div>
 
-<section id="home" class="page active">
+    <!-- RESOURCE CONTENT -->
+    <div id="video" class="resource-content" style="display:none;">
+      <h3>Video Lesson</h3>
+      <p>Here you can add your video lesson or embed a YouTube link!</p>
+    </div>
+    <div id="flashcards" class="resource-content" style="display:none;">
+      <h3>Flashcards</h3>
+      <div id="flashcard" class="flashcard" onclick="flipCard()">Click "Load Flashcards" to start</div>
+      <div class="menu-buttons">
+        <button onclick="loadSpanishLevel3()">Load Flashcards</button>
+        <button onclick="nextCard()">Next</button>
+      </div>
+    </div>
+    <div id="practice" class="resource-content" style="display:none;">
+      <h3>Practice Mode</h3>
+      <div id="practice-box">
+        <p id="practiceQuestion">Click "Start Practice" to begin.</p>
+        <input id="practiceInput" type="text" placeholder="Type your answer here">
+        <button onclick="checkPractice()">Check Answer</button>
+        <p id="practiceResult"></p>
+        <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">Next</button>
+      </div>
+      <div class="menu-buttons">
+        <button onclick="startPractice()">Start Practice</button>
+      </div>
+    </div>
+    <div id="test" class="resource-content" style="display:none;">
+      <h3>Unit Test</h3>
+      <div id="unitTest"></div>
+    </div>
+  </section>
 
-<div class="dashboard">
+  <!-- CONFETTI CANVAS -->
+  <canvas id="confettiCanvas"></canvas>
 
-<div class="card pet-card">
+  <footer>
+    © 2026 PolyPet | NJ FBLA State Competition
+  </footer>
 
-<div class="pet-avatar">🦊</div>
-
-<h2>Pika</h2>
-
-<p>Level <span id="level">1</span></p>
-
-<div class="xp-bar">
-
-<div id="xp-fill"></div>
-
-</div>
-
-<button onclick="gainXP()">Complete Lesson</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🔥 Daily Streak</h3>
-
-<p id="streak">3 Days</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📚 Lessons Completed</h3>
-
-<p>12</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section id="learn" class="page">
-
-<h1>Learning Hub</h1>
-
-<div class="lesson-grid">
-
-<div class="lesson-card">
-<h3>Flashcards</h3>
-<p>Review vocabulary</p>
-</div>
-
-<div class="lesson-card">
-<h3>Practice</h3>
-<p>Interactive exercises</p>
-</div>
-
-<div class="lesson-card">
-<h3>Unit Test</h3>
-<p>Test your knowledge</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="pets" class="page">
-
-<h1>Pet Collection</h1>
-
-<div class="pet-grid">
-
-<div class="pet-box">🦊 Spanish Fox</div>
-<div class="pet-box">🐼 Mandarin Panda</div>
-<div class="pet-box">🐱 Japanese Cat</div>
-
-</div>
-
-</section>
-
-
-<section id="clock" class="page">
-
-<h1>World Clock</h1>
-
-<div class="clock-grid">
-
-<div class="clock-card">
-<h3>🇯🇵 Japan</h3>
-<p id="tokyo"></p>
-</div>
-
-<div class="clock-card">
-<h3>🇪🇸 Spain</h3>
-<p id="madrid"></p>
-</div>
-
-<div class="clock-card">
-<h3>🇨🇳 China</h3>
-<p id="beijing"></p>
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<script src="script.js"></script>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
