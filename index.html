@@ -179,35 +179,40 @@
     <h2>Resources</h2>
 
     <!-- RESOURCE CARDS -->
-    <div class="resource-cards">
-      <div class="resource-card" onclick="showResource('video')">🎥 Video Lesson</div>
-      <div class="resource-card" onclick="showResource('flashcards')">🃏 Flashcards</div>
-      <div class="resource-card" onclick="showResource('practice')">✏️ Practice Mode</div>
-      <div class="resource-card" onclick="showResource('test')">📝 Unit Test</div>
-    </div>
-
-    <!-- RESOURCE CONTENT -->
     <div id="video" class="resource-content" style="display:none;">
-  <h3>🎥 Video Lesson</h3>
-  <p>Learn Spanish with Butterfly Spanish!</p>
+  <h3>🎥 Video Lessons</h3>
+  <p>Learn Spanish with structured lessons from Butterfly Spanish.</p>
 
-  <div style="display:flex; justify-content:center;">
-    <iframe 
-      width="700" 
-      height="400" 
-      src="https://www.youtube.com/embed?listType=user_uploads&list=butterflyspanish"
-      title="Butterfly Spanish Lessons"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <div class="video-lessons">
 
-  <p style="margin-top:15px;">
-    More lessons here:
-    <a href="https://www.youtube.com/@ButterflySpanish" target="_blank">
-      Visit the Butterfly Spanish Channel
+    <a href="https://www.youtube.com/watch?v=8Id0yP7F7Zk" target="_blank" class="video-lesson-card">
+      <img src="https://i.ytimg.com/vi/8Id0yP7F7Zk/maxresdefault.jpg">
+      <div class="lesson-info">
+        <h4>Spanish for Beginners</h4>
+        <p>Learn basic greetings and conversation.</p>
+        <span>▶ Start Lesson</span>
+      </div>
     </a>
-  </p>
+
+    <a href="https://www.youtube.com/watch?v=kg2M0hGfM7Y" target="_blank" class="video-lesson-card">
+      <img src="https://i.ytimg.com/vi/kg2M0hGfM7Y/maxresdefault.jpg">
+      <div class="lesson-info">
+        <h4>Spanish Pronunciation</h4>
+        <p>Master Spanish sounds and accents.</p>
+        <span>▶ Start Lesson</span>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=ZPq9V4R9f5k" target="_blank" class="video-lesson-card">
+      <img src="https://i.ytimg.com/vi/ZPq9V4R9f5k/maxresdefault.jpg">
+      <div class="lesson-info">
+        <h4>Spanish Grammar Basics</h4>
+        <p>Understand sentence structure.</p>
+        <span>▶ Start Lesson</span>
+      </div>
+    </a>
+
+  </div>
 </div>
     <div id="flashcards" class="resource-content" style="display:none;">
       <h3>Flashcards</h3>
