@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let streak = parseInt(localStorage.getItem("streak")) || 0;
 
   let petCollection = [
-    {name:"Wolf", emoji:"🐺", language:"German"},
-    {name:"Lion", emoji:"🦁", language:"Swahili"}
-  ];
+  {name:"Fox", emoji:"🦊", language:"Spanish"},
+  {name:"Wolf", emoji:"🐺", language:"German"},
+  {name:"Lion", emoji:"🦁", language:"Swahili"}
+];
 
-  let currentPet = petCollection[0];
+let currentPet = petCollection[0];
   let petName = localStorage.getItem("petName") || "Pika";
 
   function updatePetUI(){
