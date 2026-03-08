@@ -258,20 +258,21 @@ let currentPet = petCollection[0];
 
   }
 
-  window.scheduleLesson = function(){
+window.scheduleLesson = function(){
 
-    const date = document.getElementById("lesson-date").value;
+  const date = document.getElementById("lesson-date").value;
+  const time = document.getElementById("lesson-time").value;
 
-    if(!date){
-      alert("Please choose a date.");
-      return;
-    }
+  if(!date || !time){
+    alert("Please choose a date and time.");
+    return;
+  }
 
-    lessons.push("Lesson on " + date);
+  lessons.push("Lesson on " + date + " at " + time);
 
-    localStorage.setItem("lessons",JSON.stringify(lessons));
+  localStorage.setItem("lessons", JSON.stringify(lessons));
 
-    renderLessons();
+  renderLessons();
 
   };
 
