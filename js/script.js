@@ -5,7 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const el = document.getElementById(id);
     if(el) el.scrollIntoView({behavior:"smooth"});
   };
+// ================= DYNAMIC GREETING =================
+function updateGreeting(){
 
+  const greetingElement = document.getElementById("dynamicGreeting");
+  if(!greetingElement) return;
+
+  const hour = new Date().getHours();
+  let greeting = "";
+
+  if(hour < 12){
+    greeting = "Good Morning, Emma!";
+  }
+  else if(hour < 18){
+    greeting = "Good Afternoon, Emma!";
+  }
+  else{
+    greeting = "Good Evening, Emma!";
+  }
+
+  greetingElement.textContent = greeting;
+}
+
+updateGreeting();
   // ================= PET DATA =================
   let xp = parseInt(localStorage.getItem("xp")) || 0;
   let level = parseInt(localStorage.getItem("level")) || 1;
