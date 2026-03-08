@@ -174,72 +174,99 @@
     </div>
   </section>
 
-  <!-- RESOURCES -->
-  <section id="resources" class="section">
-    <h2>Resources</h2>
+ <!-- RESOURCES -->
+<section id="resources" class="section">
+  <h2>Resources</h2>
 
-    <!-- RESOURCE CARDS -->
-    <div id="video" class="resource-content" style="display:none;">
-  <h3>🎥 Video Lessons</h3>
-  <p>Explore beginner Spanish lessons from Butterfly Spanish.</p>
-
-  <div class="video-lessons">
-
-    <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
-      <img src="https://images.unsplash.com/photo-1543785734-4b2b688d0a3a">
-      <div class="lesson-info">
-        <h4>Spanish Basics</h4>
-        <p>Learn greetings and everyday phrases.</p>
-        <span>▶ Watch Lesson</span>
-      </div>
-    </a>
-
-    <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-      <div class="lesson-info">
-        <h4>Spanish Pronunciation</h4>
-        <p>Practice correct sounds and accents.</p>
-        <span>▶ Watch Lesson</span>
-      </div>
-    </a>
-
-    <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
-      <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea">
-      <div class="lesson-info">
-        <h4>Spanish Culture</h4>
-        <p>Learn language through culture and travel.</p>
-        <span>▶ Watch Lesson</span>
-      </div>
-    </a>
-
+  <!-- RESOURCE NAVIGATION CARDS -->
+  <div class="resource-cards">
+    <div class="resource-card" onclick="showResource('video')">🎥 Video Lessons</div>
+    <div class="resource-card" onclick="showResource('flashcards')">🃏 Flashcards</div>
+    <div class="resource-card" onclick="showResource('practice')">✏️ Practice Mode</div>
+    <div class="resource-card" onclick="showResource('test')">📝 Unit Test</div>
   </div>
-</div>
-    <div id="flashcards" class="resource-content" style="display:none;">
-      <h3>Flashcards</h3>
-      <div id="flashcard" class="flashcard" onclick="flipCard()">Click "Load Flashcards" to start</div>
-      <div class="menu-buttons">
-        <button onclick="loadSpanishLevel3()">Load Flashcards</button>
-        <button onclick="nextCard()">Next</button>
-      </div>
+
+  <!-- VIDEO LESSONS -->
+  <div id="video" class="resource-content">
+    <h3>🎥 Video Lessons</h3>
+    <p>Explore beginner Spanish lessons from Butterfly Spanish.</p>
+
+    <div class="video-lessons">
+
+      <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
+        <img src="https://images.unsplash.com/photo-1543785734-4b2b688d0a3a">
+        <div class="lesson-info">
+          <h4>Spanish Basics</h4>
+          <p>Learn greetings and everyday phrases.</p>
+          <span>▶ Watch Lesson</span>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <div class="lesson-info">
+          <h4>Spanish Pronunciation</h4>
+          <p>Practice correct sounds and accents.</p>
+          <span>▶ Watch Lesson</span>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/@ButterflySpanish" target="_blank" class="video-lesson-card">
+        <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea">
+        <div class="lesson-info">
+          <h4>Spanish Culture</h4>
+          <p>Learn language through culture and travel.</p>
+          <span>▶ Watch Lesson</span>
+        </div>
+      </a>
+
     </div>
-    <div id="practice" class="resource-content" style="display:none;">
-      <h3>Practice Mode</h3>
-      <div id="practice-box">
-        <p id="practiceQuestion">Click "Start Practice" to begin.</p>
-        <input id="practiceInput" type="text" placeholder="Type your answer here">
-        <button onclick="checkPractice()">Check Answer</button>
-        <p id="practiceResult"></p>
-        <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">Next</button>
-      </div>
-      <div class="menu-buttons">
-        <button onclick="startPractice()">Start Practice</button>
-      </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="flashcards" class="resource-content" style="display:none;">
+    <h3>Flashcards</h3>
+
+    <div id="flashcard" class="flashcard" onclick="flipCard()">
+      Click "Load Flashcards" to start
     </div>
-    <div id="test" class="resource-content" style="display:none;">
-      <h3>Unit Test</h3>
-      <div id="unitTest"></div>
+
+    <div class="menu-buttons">
+      <button onclick="loadSpanishLevel3()">Load Flashcards</button>
+      <button onclick="nextCard()">Next</button>
     </div>
-  </section>
+  </div>
+
+  <!-- PRACTICE -->
+  <div id="practice" class="resource-content" style="display:none;">
+    <h3>Practice Mode</h3>
+
+    <div id="practice-box">
+      <p id="practiceQuestion">Click "Start Practice" to begin.</p>
+
+      <input id="practiceInput" type="text" placeholder="Type your answer here">
+
+      <button onclick="checkPractice()">Check Answer</button>
+
+      <p id="practiceResult"></p>
+
+      <button onclick="nextPractice()" id="nextPracticeBtn" style="display:none;">
+        Next
+      </button>
+    </div>
+
+    <div class="menu-buttons">
+      <button onclick="startPractice()">Start Practice</button>
+    </div>
+  </div>
+
+  <!-- UNIT TEST -->
+  <div id="test" class="resource-content" style="display:none;">
+    <h3>Unit Test</h3>
+    <div id="unitTest"></div>
+  </div>
+
+</section>
 
   <!-- CONFETTI CANVAS -->
   <canvas id="confettiCanvas"></canvas>
